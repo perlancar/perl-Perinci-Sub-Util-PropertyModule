@@ -3,7 +3,7 @@ package Perinci::Sub::Util::PropertyModule;
 # DATE
 # VERSION
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
 
@@ -59,7 +59,7 @@ sub get_required_property_modules {
 }
 
 1;
-# ABSTRACT:
+# ABSTRACT: Given a Rinci function metadata, find what property modules are required
 
 =head1 SYNOPSIS
 
