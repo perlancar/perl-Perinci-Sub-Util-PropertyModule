@@ -19,10 +19,10 @@ sub get_required_property_modules {
     my $meta = shift;
 
     # Here's how it works: first we reset the
-    # $Sah::Schema::Rinci::SCHEMAS{rinci_function} (well the whole SCHEMAS hash)
-    # structure which contains the list of supported properties. This is done by
-    # emptying it and force-reloading the Sah::Schema::Rinci module, which is
-    # the module responsible for declaring the structure.
+    # $Sah::Schema::rinci::functio_meta::schema structure which contains the
+    # list of supported properties. This is done by emptying it and
+    # force-reloading the Sah::Schema::rinci::function_meta module, which is the
+    # module responsible for declaring the structure.
     #
     # We also delete Perinci::Sub::Property::* entries from %INC to force-reload
     # them. We then record %INC at this point (1).
@@ -34,9 +34,9 @@ sub get_required_property_modules {
     # current %INC. We now get the list of required Perinci::Sub::Property::*
     # modules.
 
-    %Sah::Schema::Rinci::SCHEMAS = ();
-    delete $INC{'Sah/Schema/Rinci.pm'};
-    require Sah::Schema::Rinci;
+    %Sah::Schema::rinci::function_meta::schema = undef;
+    delete $INC{'Sah/Schema/rinci/function_meta.pm'};
+    require Sah::Schema::rinci::function_meta;
 
     for (grep {m!^Perinci/Sub/Property/!} keys %INC) {
         delete $INC{$_};
