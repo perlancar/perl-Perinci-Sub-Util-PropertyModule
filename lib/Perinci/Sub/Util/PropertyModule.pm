@@ -34,7 +34,7 @@ sub get_required_property_modules {
     # current %INC. We now get the list of required Perinci::Sub::Property::*
     # modules.
 
-    %Sah::Schema::rinci::function_meta::schema = undef;
+    %Sah::Schema::rinci::function_meta::schema = ();
     delete $INC{'Sah/Schema/rinci/function_meta.pm'};
     require Sah::Schema::rinci::function_meta;
 
